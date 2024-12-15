@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Base ESR | La Rochelle</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/inter/3.19.3/inter.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="css/style.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <header class="header">
+            <h1><i class="fas fa-database"></i> Base ESR - La Rochelle</h1>
+        </header>
+
+        <div class="card">
+            <form class="formulairePourBDProf">
+                <h3><i class="fas fa-list-ul"></i> Requêtes prédéfinies</h3>
+                <select name="requete">
+                    <option value="SELECT Sexe, SUM(Effectif) total FROM ESR GROUP BY Sexe">
+                        Effectifs par sexe
+                    </option>
+                    <option value="SELECT Secteur, SUM(Effectif) total FROM ESR GROUP BY Secteur">
+                        Total par secteur
+                    </option>
+                    <option value="SELECT Secteur, Sexe, SUM(Effectif) total FROM ESR GROUP BY Secteur, Sexe">
+                        Effectifs par secteur et sexe
+                    </option>
+                    <option value="SELECT Sexe, COUNT(*) nombre FROM ESR GROUP BY Sexe">
+                        Nombre de formations par sexe
+                    </option>
+                    <option value="SELECT Secteur, COUNT(*) nombre FROM ESR GROUP BY Secteur">
+                        Nombre de formations par secteur
+                    </option>
+                    <option value="SELECT Commune, Secteur, Sexe, SUM(Effectif) total FROM ESR GROUP BY Commune, Secteur, Sexe">
+                        Effectifs par commune, secteur et sexe
+                    </option>
+                </select>
+                <button type="submit"><i class="fas fa-play"></i> Afficher</button>
+            </form>
+        </div>
+
+        <div class="card">
+            <form class="formulairePourBDProf requete-perso">
+                <h3><i class="fas fa-code"></i> Requête personnalisée SQL</h3>
+                <textarea name="requete" placeholder="Entrez votre requête SQL ici..."></textarea>
+                <button type="submit"><i class="fas fa-terminal"></i> Exécuter la requête</button>
+            </form>
+        </div>
+
+        <div class="affichageBD">
+            <table></table>
+        </div>
+
+        <div class="affichageDesErreurs"></div>
+
+        <footer>
+            <p>Site créé par <a href="https://ethan.serpolet.fun">Ethan Serpolet</a>, David MAKSIMTCHOUK</p>
+        </footer>
+    </div>
+
+    <script src="js/gestionFormulaire.js" defer></script>
+</body>
+</html>
